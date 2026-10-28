@@ -124,7 +124,7 @@ fn read_kmf(path: &Path) -> Result<(Vec<u8>, u64)> {
     if decoded.len() as u64 != expected_len {
         bail!("KMF payload size mismatch: expected {expected_len}, decoded {}", decoded.len());
     }
-    if decoded.get(..4) != Some(b"GGUF") { bail!("KMF payload is not a GGUF model"); }
+    if decoded.get(..4) != Some(&b"GGUF"[..]) { bail!("KMF payload is not a GGUF model"); }
     Ok((decoded, expected_len))
 }
 
