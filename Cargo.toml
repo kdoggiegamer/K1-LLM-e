@@ -1,0 +1,16 @@
+[package]
+name = "k1llme"
+version = "1.0.0"
+edition = "2021"
+description = "A local model CLI for GGUF and KMF models"
+license = "MIT"
+
+[[bin]]
+name = "k1"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+llama_cpp = "0.3.2"
+tempfile = "3"
+zstd = "0.13"
