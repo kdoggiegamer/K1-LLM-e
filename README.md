@@ -2,6 +2,12 @@
 
 K1(LLM)e is a Rust CLI for running local language models from GGUF and KMF files.
 
+## Project goals
+
+- Faster inference through efficient local execution.
+- Cheaper inference by running models on user-controlled hardware.
+- Smaller model files through compressed storage and, in future KMF revisions, variable-precision floating-point weights.
+
 ## v1.0.0
 
 - Run GGUF models with a prompt.
@@ -9,7 +15,7 @@ K1(LLM)e is a Rust CLI for running local language models from GGUF and KMF files
 - Inspect model container headers.
 - Compress GGUF to KMF and restore it to GGUF.
 
-The project also plans a graphical interface; the first release focuses on the CLI.
+The first release establishes the CLI and KMF container. It does not yet implement native variable-precision KMF weights or claim speedups over the selected inference backend. The project also plans a graphical interface.
 
 ## Build requirements
 
@@ -36,7 +42,7 @@ KMF v1 is a versioned container for one GGUF payload. It uses zstd compression a
 | 10 | 8 bytes | Uncompressed GGUF length |
 | 18 | remaining | zstd-compressed GGUF bytes |
 
-GGUF stores tensor types and precision. KMF v1 preserves those encodings and adds lossless container compression; it does not requantize weights. Native KMF variable-precision floating-point encodings remain future work.
+GGUF stores tensor types and precision. KMF v1 preserves those encodings and adds lossless container compression; it does not requantize weights. KMF v1 is a compatibility and packaging step toward smaller model files, not a native variable-precision encoding.
 
 ## Implementation
 
