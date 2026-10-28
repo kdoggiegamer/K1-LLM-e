@@ -4,12 +4,6 @@ K1(LLM)e is a Rust CLI for running local language models from GGUF and KMF files
 
 ## Project goals
 
-- Faster inference through efficient local execution.
-- Cheaper inference by running models on user-controlled hardware.
-- Smaller model files through compressed storage and, in future KMF revisions, variable-precision floating-point weights.
-
-## Project goals
-
 K1(LLM)e aims to make local AI inference faster, cheaper, and more accessible:
 
 - **Faster inference:** improve generation speed through efficient execution and hardware-aware optimizations.
